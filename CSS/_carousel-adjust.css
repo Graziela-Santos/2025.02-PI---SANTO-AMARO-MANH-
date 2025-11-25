@@ -1,0 +1,4 @@
+/* Ajustes pequenos para integração com carousel */
+.carousel__viewport { overflow: hidden; }
+.carousel__track { display: flex; gap: 24px; }
+.carousel__btn { background: #fff; }

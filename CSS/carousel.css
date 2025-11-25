@@ -1,0 +1,61 @@
+/* Carousel styles */
+.carousel {
+  position: relative;
+  width: 100%;
+  margin: 32px 10px;
+}
+.carousel__viewport {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+.carousel__track {
+  display: flex;
+  gap: 25px;
+  margin: 10px;
+}
+
+/* Enable scroll snapping for nicer UX when scrolling/dragging */
+.carousel__viewport { scroll-snap-type: x mandatory; }
+.carousel__track > .product-card { scroll-snap-align: start; }
+.carousel__btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.9);
+  border: 1px solid #eee;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.06);
+}
+.carousel__btn:active { transform: translateY(-50%) scale(0.98); }
+.carousel__btn.prev { left: 8px; }
+.carousel__btn.next { right: 8px; }
+
+/* Each card sizing inside carousel (4 per view on desktop) */
+.carousel .product-card {
+  flex: 0 0 calc(25% - 18px);
+  max-width: calc(25% - 18px);
+  box-shadow: none;
+  border: none;
+}
+.carousel .product-image img { width: 100%; height: auto; display:block; }
+
+/* Responsive: 3 per row */
+@media (max-width: 1100px) {
+  .carousel .product-card { flex: 0 0 calc(33.333% - 16px); max-width: calc(33.333% - 16px); }
+}
+/* 2 per row */
+@media (max-width: 760px) {
+  .carousel .product-card { flex: 0 0 calc(50% - 12px); max-width: calc(50% - 12px); }
+}
+/* 1 per row */
+@media (max-width: 420px) {
+  .carousel .product-card { flex: 0 0 100%; max-width: 100%; }
+}
